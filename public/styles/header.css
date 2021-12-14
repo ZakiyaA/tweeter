@@ -1,0 +1,21 @@
+header{
+  background-color:#D79928;
+ 
+  height: 400px;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+
+
+.avatar{
+ align-content: center;
+}
+.name{
+  color: white;
+ align-self: flex-end;
+}

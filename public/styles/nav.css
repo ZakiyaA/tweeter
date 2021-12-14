@@ -2,27 +2,35 @@
 background-color: #4056A1;
 color: #FFFFFF ;
 height: 120px;
-width: 100%;
+width: 100vw;
+position: absolute;
+z-index: 1;
 display: flex;
 justify-content: space-between;
 padding-left: 1.5em;
 padding-right: 1.5em;
-
 }
 
-.left-nav{
+.tweeter {
   font-family: 'Bungee', cursive;
-  border-left-width: 1.5em;
+  margin-top: 70px;
 }
 
-.right-nav{
+.right-nav {
   border-left-width: 1.5em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.fas fa-angle-double-down{ 
+
+.nav i { 
   color: red;
 
 }
+
+
+
+
+

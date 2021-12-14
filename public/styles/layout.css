@@ -16,14 +16,22 @@ html {
 
 
  
- /* font-family: 'Source Sans Pro', sans-serif; */
- /* font-family: 'Bungee', cursive; */
+
+
 
 body {
   color: #545149;
   background-color: #f4f1ec;
+  background-image: url(../images/background.png) ;
   font-size: 24px;
-  
+  font-family: 'Source Sans Pro', sans-serif; 
+   /* font-family: 'Bungee', cursive; */
+}
+
+main {
+height: 90%;
+background-color: #f4f1ec;
+align-content: center;
 }
 
 /*
