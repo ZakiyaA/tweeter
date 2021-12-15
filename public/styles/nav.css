@@ -4,6 +4,7 @@ color: #FFFFFF ;
 height: 120px;
 width: 100vw;
 position: absolute;
+position: fixed;
 z-index: 1;
 display: flex;
 justify-content: space-between;
@@ -13,7 +14,8 @@ padding-right: 1.5em;
 
 .tweeter {
   font-family: 'Bungee', cursive;
-  margin-top: 70px;
+  font-size: 50px;
+  margin-top: 50px;
 }
 
 .right-nav {
