@@ -1,0 +1,101 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+}
+
+
+.first{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 25px;
+}
+.second {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px;
+
+}
+button {
+  background-color: #4152A1;
+  border: none;
+  color: white;
+  font-family: 'Bungee', cursive;
+  padding: 5px 5px;
+  text-align: center;
+}
+
+
+textarea{
+  border: none;
+  border-bottom: 3px solid black;
+  background-color: transparent;
+  font-size: medium;
+}
+
+/* tweet---------------*/
+
+.article-tweet {
+  border: 3px solid black;
+  border-radius: 15px;
+  padding: 20px; 
+  height: 200px; 
+  margin: 1.5em;
+}
+
+.article-tweet:hover {
+
+  box-shadow:10px 5px 10px #D79928; ;
+}
+
+.article-tweet img {
+  size: 2px;
+}
+
+.article-tweet span{
+  font-size: medium;
+}
+
+.article-tweet i {
+  font-size: .75em;
+  color: #4152A1;
+}
+
+
+.article-tweet i:hover{
+  color: #D79928;
+}
+
+
+.tweet-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.face {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.middle label{
+  font-size: medium;
+}
+
+hr{
+  height:2px;
+  border: width 2px;
+  color:black;
+  background-color:black"
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+output{
+  font-family: 'Bungee', cursive;
+}
