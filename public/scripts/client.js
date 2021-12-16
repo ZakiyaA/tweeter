@@ -71,25 +71,19 @@ const createTweetElement = function (tweet) {
       $(`#tweets-container`).append($tweet);
     }
   }
-
   renderTweets(tweetData);
 
 
-  $("#target").submit(function (event) {
+  $("form").submit(function (event) {
     // Stop form from submitting normally
-    var txt = $("#textarea").val();
     event.preventDefault();
      // Get some values from elements on the page:
     var data = $(this).serialize();
-    $.post('/tweets', data, (response)=> {
-      console.log(response);
-    })
-  
-  });
+    console.log("data", data);
     $.ajax({
-      data: $(this).serialize(),
-      method: "POST",
+      type: "POST",
       url: "http://localhost:8080/tweets",
+      data:$(this).serialize(),
       success: (data) => {
         console.log('this request succeeded and here\'s the data', data);
       },
@@ -97,19 +91,7 @@ const createTweetElement = function (tweet) {
         console.log('this request failed and this was the error', error);
       }
     });
-
-
-    $.ajax({
-      dataType: 'json',
-      method: "GET",
-      url: "http://localhost:8080/tweets",
-      success: (tweets) => {
-        console.log('this request succeeded and here\'s the data', tweets);
-      },
-        error: (error) => {
-        console.log('this request failed and this was the error', error);
-      }
-    });
+  });
     // The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
     const loadTweets = function () {
       $.ajax({
