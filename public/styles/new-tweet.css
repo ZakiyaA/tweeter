@@ -26,14 +26,24 @@ button {
   text-align: center;
 }
 
+button:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px #D79928;
+}
+
 
 textarea{
   border: none;
   border-bottom: 3px solid black;
   background-color: transparent;
   font-size: medium;
+  color: black;
 }
-
+::placeholder{
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+}
 /* tweet---------------*/
 
 .article-tweet {
@@ -42,6 +52,10 @@ textarea{
   padding: 20px; 
   height: 200px; 
   margin: 1.5em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  color: black;
 }
 
 .article-tweet:hover {
@@ -60,6 +74,7 @@ textarea{
 .article-tweet i {
   font-size: .75em;
   color: #4152A1;
+  
 }
 
 
@@ -67,6 +82,11 @@ textarea{
   color: #D79928;
 }
 
+.tweet-title{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: large;
+  font-weight: bold;
+}
 
 .tweet-header{
   display: flex;
@@ -93,9 +113,25 @@ hr{
 footer {
   display: flex;
   justify-content: space-between;
- 
 }
 
 output{
   font-family: 'Bungee', cursive;
+}
+
+.errMessage{
+  /* border: 3px solid black; */
+  border-radius: 15px;
+  /* display: none; */
+}
+.error{
+  background-color: red;
+  content: none;
+  font-family: 'Bungee', cursive;
+  width: 500px;
+  font-size:medium;
+  border-radius: 15px;
+  color: white;
+  align-self: center;
+  margin: auto ;
 }
