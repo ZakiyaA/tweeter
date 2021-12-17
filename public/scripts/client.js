@@ -37,7 +37,7 @@ const tweetData = [
 ]
 
 const createTweetElement = function (tweet) {
-  // console.log(tweet);
+  //...Creation of HTML with JavaScript’s Template Strings
   const $tweetMarkUp = `
   <article class="article-tweet">
   <header class="tweet-header">
@@ -79,21 +79,21 @@ const createTweetElement = function (tweet) {
   }
   renderTweets(tweetData);
 
-
+  const error = document.querySelector(".error");
+  //---hide error message container, so it will not show an empty container when the page starts loading
+  error.style.display = 'none';
   $("form").submit(function (event) {
     // Stop form from submitting normally
     event.preventDefault();
-    // const maxLength = 140;
     const textArea = ($('#textarea').val()).trim();
     var length = textArea.length;
-    // var text_remaining = maxLength - length;
     if (textArea === "" || textArea === null) {
-      $('.error').text('Tweets cannot be empty');
+      $('.error').show().text('Tweets cannot be empty');
     } else if (length > 140) {
-      $('.error').text('Your tweet has exceeded the 140 character limit.');
-     
-      // $("#textarea").text("Your message");
-      // return alert("You have exceeds the 140 character limit")
+      //--- Remove the first error message to show the other one
+      $('.error').empty();
+      //-- display the second error message
+      $('.error').show().text('Your tweet has exceeded the 140 character limit.');
     } else {
      // Get some values from elements on the page:
     location.reload();
