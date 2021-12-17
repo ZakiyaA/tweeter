@@ -5,7 +5,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
- 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+
 const tweetData = [
   {
     "user": {
@@ -43,7 +49,7 @@ const createTweetElement = function (tweet) {
     <span>${tweet.user.handle}</span>
   </header>
   <div class="middle">
-    <label for="tweet-text">${tweet.content.text}</label>
+    <label for="tweet-text">${escape(tweet.content.text)}</label>
     <hr>
   </div>
   <footer>
@@ -68,7 +74,7 @@ const createTweetElement = function (tweet) {
       //calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet);
       // takes return value and appends it to the tweets container
-      $(`#tweets-container`).append($tweet);
+      $(`#tweets-container`).prepend($tweet);
     }
   }
   renderTweets(tweetData);
@@ -77,7 +83,20 @@ const createTweetElement = function (tweet) {
   $("form").submit(function (event) {
     // Stop form from submitting normally
     event.preventDefault();
+    // const maxLength = 140;
+    const textArea = ($('#textarea').val()).trim();
+    var length = textArea.length;
+    // var text_remaining = maxLength - length;
+    if (textArea === "" || textArea === null) {
+      $('.error').text('Tweets cannot be empty');
+    } else if (length > 140) {
+      $('.error').text('Your tweet has exceeded the 140 character limit.');
+     
+      // $("#textarea").text("Your message");
+      // return alert("You have exceeds the 140 character limit")
+    } else {
      // Get some values from elements on the page:
+    location.reload();
     var data = $(this).serialize();
     console.log("data", data);
     $.ajax({
@@ -91,6 +110,7 @@ const createTweetElement = function (tweet) {
         console.log('this request failed and this was the error', error);
       }
     });
+  }
   });
     // The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
     const loadTweets = function () {
