@@ -10,14 +10,12 @@
   align-items:center;
 }
 
-
 .avatar{
   align-content: center;
   margin-top:10%;
 }
 .name{
   color: white;
- /* align-self: flex-end; */
 }
 
 
