@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
-
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     type="text/css" />
@@ -27,28 +26,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
-
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <!-- Navigation Bar-->
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <!-- Header -->
   <link rel="stylesheet" href="styles/header.css" type="text/css" />
+  <!-- Media Query-->
+  <link rel="stylesheet" href="styles/mediaQuery.css"  type="text/css" />
   <!-- main styling-->
   <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" />
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!--    timeago -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- <script src="dist/timeago.js" type="text/javascript"></script> -->
-  <!-- App JS -->
- 
   <!--composer-char-counter.js-------->
   <script type="text/javascript" src="scripts/composer-char-counter.js"></script>
-
-
-  </head>
-
+</head>
 <body>
   <!-- Top nav bar (fixed) -->
   <nav class="nav">
@@ -74,7 +68,8 @@
       <!-- <h2>Compose Tweet</h2> -->
       <form action="/tweets" method="POST">
         <div class="first">
-          <label for="Tooltips" class="error"></label>
+          <!-- error container-->
+          <div  class="error"></div>
           <!-- <label for="tweet-text" class="tweet-title">What are you humming about?</label> -->
           <textarea name="text" id="textarea" placeholder="What are you humming about?"></textarea>
         </div>
@@ -83,7 +78,6 @@
           <output name="counter" id="counter" for="tweet-text"></output>
       </form>
       <!-- <pr></pr> -->
-     
     </section>
     <!----Tweets Container------------------>
     <section id="tweets-container">
@@ -91,5 +85,4 @@
   </main>
   <script type="text/javascript" src="/scripts/client.js"></script>
 </body>
-
 </html>
