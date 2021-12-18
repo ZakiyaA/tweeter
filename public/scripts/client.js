@@ -1,44 +1,45 @@
-
+/* eslint-env jquery */
+/*eslint-env browser*/
+/*global timeago*/
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-
-
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
+  // Tweet database -----
+  const tweetData = [
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png",
+        "handle": "@SirIsaac"
+      },
+      "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+      "created_at": 1461116232227
     },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
-const createTweetElement = function (tweet) {
-  //...Creation of HTML with JavaScript’s Template Strings
-  const $tweetMarkUp = `
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd"
+      },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
+    }
+  ];
+  const createTweetElement = function(tweet) {
+    //...Creation of HTML with JavaScript’s Template Strings
+    const $tweetMarkUp = `
   <article class="article-tweet">
   <header class="tweet-header">
     <div >
@@ -63,30 +64,27 @@ const createTweetElement = function (tweet) {
   </article>
   `;
     return $tweetMarkUp;
-  }
-
-
+  };
   const renderTweets = function(tweets) {
     $("#tweets-container").empty();
     // loops through tweets
-    for(const tweet of tweets) {
+    for (const tweet of tweets) {
       console.log(tweets.length);
       //calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet);
       // takes return value and appends it to the tweets container
       $(`#tweets-container`).prepend($tweet);
     }
-  }
+  };
   renderTweets(tweetData);
-
   const error = document.querySelector(".error");
   //---hide error message container, so it will not show an empty container when the page starts loading
   error.style.display = 'none';
-  $("form").submit(function (event) {
+  $("form").submit(function(event) {
     // Stop form from submitting normally
     event.preventDefault();
     const textArea = ($('#textarea').val()).trim();
-    var length = textArea.length;
+    const length = textArea.length;
     if (textArea === "" || textArea === null) {
       $('.error').show().text('Tweets cannot be empty');
     } else if (length > 140) {
@@ -95,32 +93,32 @@ const createTweetElement = function (tweet) {
       //-- display the second error message
       $('.error').show().text('Your tweet has exceeded the 140 character limit.');
     } else {
-     // Get some values from elements on the page:
-    location.reload();
-    var data = $(this).serialize();
-    console.log("data", data);
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:8080/tweets",
-      data:$(this).serialize(),
-      success: (data) => {
-        console.log('this request succeeded and here\'s the data', data);
-      },
-        error: (error) => {
-        console.log('this request failed and this was the error', error);
-      }
-    });
-  }
-  });
-    // The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
-    const loadTweets = function () {
+      // Get some values from elements on the page:
+      location.reload();
+      const data = $(this).serialize();
+      console.log("data", data);
       $.ajax({
-        url: "/tweets/",
-        method: "GET",
-      }).done(function ($tweet) {
-        renderTweets($tweet);
+        type: "POST",
+        url: "http://localhost:8080/tweets",
+        data: $(this).serialize(),
+        success: (data) => {
+          console.log('this request succeeded and here\'s the data', data);
+        },
+        error: (error) => {
+          console.log('this request failed and this was the error', error);
+        }
       });
-      };
-      loadTweets();
+    }
+  });
+  // The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
+  const loadTweets = function() {
+    $.ajax({
+      url: "/tweets/",
+      method: "GET",
+    }).done(function($tweet) {
+      renderTweets($tweet);
+    });
+  };
+  loadTweets();
 
 });
