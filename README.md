@@ -6,9 +6,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 # Final Product
 
-!["Screenshot of Tablets design"](https://github.com/ZakiyaA/tweeter/blob/master/public/images/Tablet-view.png)
-!["Screenshot of Desktop Design "](https://github.com/ZakiyaA/tweeter/blob/master/public/images/screen-view.png)
-!["Gif of the tweeter page"](https://github.com/ZakiyaA/tweeter/blob/master/public/images/Tweeter.gif)
+!["Screenshot of Tablets design"](https://github.com/ZakiyaA/tweeter/blob/master/docs/Tablet-view.png)
+!["Screenshot of Desktop Design "](https://github.com/ZakiyaA/tweeter/blob/master/docs/screen-view.png)
+!["Gif of the tweeter page"](https://github.com/ZakiyaA/tweeter/blob/master/docs/Tweeter.gif)
 
 
 ## Getting Started
