@@ -87,12 +87,12 @@ $(document).ready(function() {
     const textArea = ($('#textarea').val()).trim();
     const length = textArea.length;
     if (textArea === "" || textArea === null) {
-      $('.error').show().text('Tweets cannot be empty');
+      $('.error').slideDown("slow").text('Tweets cannot be empty');
     } else if (length > 140) {
       //--- Remove the first error message to show the other one
       $('.error').empty();
       //-- display the second error message
-      $('.error').show().text('Your tweet has exceeded the 140 character limit.');
+      $('.error').slideDown("slow").text('Your tweet has exceeded the 140 character limit.');
     } else {
       // Get some values from elements on the page:
       location.reload();
@@ -124,16 +124,16 @@ $(document).ready(function() {
 
 
   // ......Add scrollToUp button...........
-  var scrollToTopBtn = document.getElementById("scrollToTopBtn");
-  var rootElement = document.documentElement;
-  function scrollToTop() {
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+  const rootElement = document.documentElement;
+  const scrollToTop = function() {
     // Scroll to top logic
     rootElement.scrollTo({
       top: 0,
       behavior: "smooth"
-    })
-  }
+    });
+  };
   
-  scrollToTopBtn.addEventListener("click", scrollToTop)
+  scrollToTopBtn.addEventListener("click", scrollToTop);
 
 });
