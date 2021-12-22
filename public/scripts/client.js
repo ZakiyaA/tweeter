@@ -87,12 +87,12 @@ $(document).ready(function() {
     const textArea = ($('#textarea').val()).trim();
     const length = textArea.length;
     if (textArea === "" || textArea === null) {
-      $('.error').slideDown("slow").text('Tweets cannot be empty');
+      $('.error').slideDown("slow").text('Tweets cannot be empty').prepend('<i class="fas fa-exclamation-triangle"></i>');
     } else if (length > 140) {
       //--- Remove the first error message to show the other one
       $('.error').empty();
       //-- display the second error message
-      $('.error').slideDown("slow").text('Your tweet has exceeded the 140 character limit.');
+      $('.error').slideDown("slow").text('Your tweet has exceeded the 140 character limit.').prepend('<i class="fas fa-exclamation-triangle"></i>');
     } else {
       // Get some values from elements on the page:
       location.reload();
