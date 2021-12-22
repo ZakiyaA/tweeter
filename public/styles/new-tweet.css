@@ -9,6 +9,11 @@
   flex-direction: column;
   margin: 25px;
 }
+
+.first i {
+  color: #a94442;
+  padding-right: 50px;
+}
 .second {
   display: flex;
   justify-content: space-between;
