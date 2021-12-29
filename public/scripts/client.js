@@ -14,30 +14,7 @@ $(document).ready(function() {
     return div.innerHTML;
   };
   // Tweet database -----
-  const tweetData = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
+  const tweetData = [];
   const createTweetElement = function(tweet) {
     //...Creation of HTML with JavaScript’s Template Strings
     const $tweetMarkUp = `
@@ -70,7 +47,6 @@ $(document).ready(function() {
     $("#tweets-container").empty();
     // loops through tweets
     for (const tweet of tweets) {
-      console.log(tweets.length);
       //calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet);
       // takes return value and appends it to the tweets container
@@ -87,12 +63,13 @@ $(document).ready(function() {
     const textArea = ($('#textarea').val()).trim();
     const length = textArea.length;
     if (textArea === "" || textArea === null) {
-      $('.error').slideDown("slow").text('Tweets cannot be empty').prepend('<i class="fas fa-exclamation-triangle"></i>');
+      setTimeout($('.error').slideDown("slow").text('Tweets cannot be empty').prepend('<i class="fas fa-exclamation-triangle"></i>'), 100);
+      setTimeout($('.error').fadeOut( 3000), 1000);
     } else if (length > 140) {
       //--- Remove the first error message to show the other one
-      $('.error').empty();
       //-- display the second error message
-      $('.error').slideDown("slow").text('Your tweet has exceeded the 140 character limit.').prepend('<i class="fas fa-exclamation-triangle"></i>');
+      setTimeout($('.error').slideDown("slow").text('Your tweet has exceeded the 140 character limit.').prepend('<i class="fas fa-exclamation-triangle"></i>'), 100);
+      setTimeout($('.error').fadeOut( 3000), 1000);
     } else {
       // Get some values from elements on the page:
       location.reload();
@@ -121,8 +98,6 @@ $(document).ready(function() {
     });
   };
   loadTweets();
-
-
   // ......Add scrollToUp button...........
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
   const rootElement = document.documentElement;
@@ -133,7 +108,5 @@ $(document).ready(function() {
       behavior: "smooth"
     });
   };
-  
   scrollToTopBtn.addEventListener("click", scrollToTop);
-
 });
